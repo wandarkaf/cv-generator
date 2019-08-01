@@ -1,16 +1,14 @@
-import Header from './header';
+import Header from './header'
+import Footer from './footer'
 
-const layoutStyle = {
-  margin: 20,
-  padding: 20,
-  border: '1px solid #DDD'
-};
+import "../stylesheets/main.scss"
 
 const Layout = props => (
-  <div style={layoutStyle}>
+  <div>
     <Header />
     {props.children}
+    <Footer />
   </div>
-);
+)
 
-export default Layout;
+export default Layout

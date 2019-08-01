@@ -1,0 +1,18 @@
+{
+  "experience": "Experience",
+  "studies": "Studies",
+  "profession": "Software Engineer",
+  "nav": {
+    "header": {
+      "home": "Home",
+      "experimental": "Experimental",
+      "langMenu": {
+        "es": "ES",
+        "en": "EN"
+      }
+    }
+  },
+  "footer": {
+    "email": "email me!"
+  }
+}
