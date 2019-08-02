@@ -5,14 +5,18 @@ import Education from '../components/education'
 import Experience from '../components/experience'
 import Logo from '../components/logo'
 
+import {
+  API_ROOT_URL
+} from '../constants'
+
 class Index extends React.Component {
   render() {
-    const { profile, studies, jobs, t } = this.props
+    const { studies, jobs, t } = this.props
     const lang = i18n.language === undefined ? 'EN' : i18n.language.toUpperCase()
 
     return (
       <Layout>
-        <Logo show={profile}/>
+        <Logo/>
 
         <div className="row">
           <div className="col-xs-12 col-sm-7 col-md-8 col-lg-8">
@@ -41,22 +45,17 @@ class Index extends React.Component {
 
 Index.getInitialProps = async function() {
   const profileId = 1
-  const apiRootUrl = 'https://cv-quick-db-git-develop.kamina.now.sh/'
-  // const searchProfile = `?profileId=${profileId}&_sort=startDate&_order=asc`
   const searchProfile = `?profileId=${profileId}&_sort=startDate&_order=desc`
   
   // fake API call
-  const resProfile = await fetch(`${apiRootUrl}profiles?id=${profileId}`)
-  const profile = await resProfile.json() 
 
-  const resStudies = await fetch(`${apiRootUrl}studies${searchProfile}`)
+  const resStudies = await fetch(`${API_ROOT_URL}studies${searchProfile}`)
   const studies = await resStudies.json()
 
-  const resJobs = await fetch(`${apiRootUrl}jobs${searchProfile}`)
+  const resJobs = await fetch(`${API_ROOT_URL}jobs${searchProfile}`)
   const jobs = await resJobs.json()
 
   return {
-    profile: profile[0],
     studies,
     jobs,
     namespacesRequired: ['common']

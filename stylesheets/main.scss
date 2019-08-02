@@ -1,6 +1,7 @@
 @import 'flexboxgrid.scss';
 @import 'typography.scss';
 @import 'stripes.scss';
+@import 'loader.scss';
 
 *{
   margin: 0;
@@ -48,6 +49,15 @@ nav {
     &.active{
       color: #9F280A;
     }
+    &.inactive{
+      color: black;
+    }
+  }
+  .active{
+    color: #9F280A;
+  }
+  .inactive{
+    color: black;
   }
   a {
     margin-right: 15px;

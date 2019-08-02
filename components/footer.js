@@ -5,12 +5,12 @@ import moment from 'moment'
 
 class Footer extends React.Component {
   render() {
-    const { t } = this.props
+    const { t, show } = this.props
 
     return (
       <footer>
-        <h5>© {moment().year()} {'Alonso Lamas'}</h5>
-        <a className="subtitle2" href={`mailto:${'lamas.alonso@gmail.com'}`}>{t('footer.email')}</a>
+        <h5>{`© ${moment().year()} ${show.name}`}</h5>
+        <a className="subtitle2" href={`mailto:${show.email}`}>{t('footer.email')}</a>
         <FooterStrips />
       </footer>
     )

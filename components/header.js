@@ -1,27 +1,41 @@
-// import Link from 'next/link';
+import { withRouter } from 'next/router'
 // translations
 import { i18n, withTranslation, Link } from '../i18n'
 
 class Header extends React.Component {
-  state = {}
+  state = {
+    language: ''
+  }
+
+  componentDidMount() {
+    this.setState({ language: i18n.language })
+  }
 
   handlelanguage = lang => e => {
     e.preventDefault()
     i18n.changeLanguage(lang)
+    this.setState({ language: lang })
   }
 
+  handleActiveLangClass = lang => 
+    this.state.language === lang ? 'active' : 'inactive'
+
+  handleActivePathClass = (path, current) => 
+    path === current ? 'active' : 'inactive'
+
   render() {
-    const { t } = this.props
+    const { t, router } = this.props
+    const path = router.pathname.slice(1)
 
     const language = (
       <p className="language">
         <span 
-          className={`btn ${i18n.language === 'es' ? 'active' : 'inactive'}`}
+          className={`btn ${this.handleActiveLangClass('es')}`}
           onClick={this.handlelanguage('es')}>
           {t('nav.header.langMenu.es')}
         </span>
         <span 
-          className={`btn ${i18n.language === 'en' ? 'active' : 'inactive'}`}
+          className={`btn ${this.handleActiveLangClass('en')}`}
           onClick={this.handlelanguage('en')}>
           {t('nav.header.langMenu.en')}
         </span>
@@ -34,10 +48,14 @@ class Header extends React.Component {
             <div className="box">
               <p>
                 <Link href="/">
-                  <a className="btn">{t('nav.header.home')}</a>
+                  <a className={`btn ${this.handleActivePathClass(path, '')}`}>
+                    {t('nav.header.home')}
+                  </a>
                 </Link>
                 <Link href="/experimental">
-                  <a className="btn">{t('nav.header.experimental')}</a>
+                  <a className={`btn ${this.handleActivePathClass(path, 'experimental')}`}>
+                    {t('nav.header.experimental')}
+                  </a>
                 </Link>
               </p>
             </div>
@@ -57,4 +75,4 @@ Header.getInitialProps = () => {
     namespacesRequired: ['common']
 }
 
-export default withTranslation('common')(Header)
+export default withRouter(withTranslation('common')(Header))
