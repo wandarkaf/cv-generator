@@ -1,6 +1,8 @@
 import { withRouter } from 'next/router'
+import Link from 'next/link'
 // translations
-import { i18n, withTranslation, Link } from '../i18n'
+import { Trans } from '@lingui/macro'
+import withLang from './withLang'
 
 class Header extends React.Component {
   state = {
@@ -8,7 +10,8 @@ class Header extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ language: i18n.language })
+    // this.setState({ language: i18n.language })
+    this.setState({ language: 'en' })    
   }
 
   handlelanguage = lang => e => {
@@ -24,7 +27,7 @@ class Header extends React.Component {
     path === current ? 'active' : 'inactive'
 
   render() {
-    const { t, router } = this.props
+    const { router } = this.props
     const path = router.pathname.slice(1)
 
     const language = (
@@ -32,12 +35,12 @@ class Header extends React.Component {
         <span 
           className={`btn ${this.handleActiveLangClass('es')}`}
           onClick={this.handlelanguage('es')}>
-          {t('nav.header.langMenu.es')}
+          <Trans>ES</Trans>
         </span>
         <span 
           className={`btn ${this.handleActiveLangClass('en')}`}
           onClick={this.handlelanguage('en')}>
-          {t('nav.header.langMenu.en')}
+          <Trans>EN</Trans>
         </span>
       </p>)
 
@@ -49,12 +52,12 @@ class Header extends React.Component {
               <p>
                 <Link href="/">
                   <a className={`btn ${this.handleActivePathClass(path, '')}`}>
-                    {t('nav.header.home')}
+                    <Trans>Home</Trans>
                   </a>
                 </Link>
                 <Link href="/experimental">
                   <a className={`btn ${this.handleActivePathClass(path, 'experimental')}`}>
-                    {t('nav.header.experimental')}
+                    <Trans>Experimental</Trans>
                   </a>
                 </Link>
               </p>
@@ -62,7 +65,6 @@ class Header extends React.Component {
           </div>
           <div className="col-xs-4">
             <div className="box">
-              {language}
             </div>
           </div>
         </div>
@@ -71,8 +73,4 @@ class Header extends React.Component {
   }
 }
 
-Header.getInitialProps = () => {
-    namespacesRequired: ['common']
-}
-
-export default withRouter(withTranslation('common')(Header))
+export default withRouter(withLang(Header))
