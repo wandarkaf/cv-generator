@@ -1,82 +1,71 @@
-import Layout from '../components/layout';
-import Link from 'next/link';
-import fetch from 'isomorphic-unfetch';
+// API
+import fetch from 'isomorphic-unfetch'
+// Translations
+import { I18n } from '@lingui/react'
+import withLang from '../components/languages/withLang'
+// components
+import Layout from '../components/layouts/layout'
+import Education from '../components/cv/education'
+import Experience from '../components/cv/experience'
+import Logo from '../components/cv/logo'
+import List from '../components/commons/list'
 
+import {
+  API_ROOT_URL
+} from '../constants'
 
-const PostLink = ({ show }) => (
-  <li>
-    <Link href="/post/[id]" as={`/post/${show.id}`}>
-      <a>{show.name}</a>
-    </Link>
-    <style jsx>{`
-    li {
-      list-style: none;
-      margin: 5px 0;
-    }
+class Index extends React.Component {
 
-    a {
-      text-decoration: none;
-      color: blue;
-      font-family: 'Arial';
-    }
+  upperLang = (lang) => lang.toUpperCase()
 
-    a:hover {
-      opacity: 0.6;
-    }
-  `}</style>
-  </li>
-);
+  render() {
+    const { studies, jobs } = this.props
 
-const Index = props => (
-  <Layout>
-    <h1>Batman TV Shows</h1>
-    <ul>
-      {props.shows.map(show => (
-        <PostLink key={show.id} show={show} />
-      ))}
-    </ul>
-    <p>{props.studies[0].id}</p>
-    <p>{props.studies[0].school_EN}</p>
-    <p>{props.studies[0].school_ES}</p>
-    <style jsx>{`
-    h1,
-    a {
-      font-family: 'Arial';
-    }
+    return (
+      <I18n>
+      {({ i18n }) => (
+        <Layout>
+          <Logo/>
 
-    ul {
-      padding: 0;
-    }
+          <div className="row">
+            <List title="Experience" measure="col-xs-12 col-sm-7 col-md-8 col-lg-8">
+              {jobs.map(exp => (
+                <Experience key={exp.id} show={exp} lang={this.upperLang(i18n.language)} />
+              ))}
+            </List>
 
-    li {
-      list-style: none;
-      margin: 5px 0;
-    }
-
-    a {
-      text-decoration: none;
-      color: blue;
-    }
-
-    a:hover {
-      opacity: 0.6;
-    }
-  `}</style>
-  </Layout>
-);
+            <List title="Studies" measure="col-xs-12 col-sm-5 col-md-4 col-lg-4">
+              {studies.map(education => (
+                <Education key={education.id} show={education} lang={this.upperLang(i18n.language)} />
+              ))}
+            </List>
+          </div>
+        </Layout>
+      )}
+      </I18n>
+    )
+  }
+}
 
 Index.getInitialProps = async function() {
-  const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
-  const res2 = await fetch('https://cv-quick-db.kamina.now.sh/studies?profileId=1&_sort=startDate&_order=asc');
-  const data = await res.json();
-  const data2 = await res2.json();
+  const profileId = 1
+  const searchProfile = `?profileId=${profileId}&_sort=startDate&_order=desc`
+  
+  // fake API call
+  const resStudies = await fetch(`${API_ROOT_URL}studies${searchProfile}`)
+  const studies = await resStudies.json()
 
-  console.log(`Show data fetched. Count: ${data.length}`);
+  const resJobs = await fetch(`${API_ROOT_URL}jobs${searchProfile}`)
+  const jobs = await resJobs.json()
 
   return {
-    shows: data.map(entry => entry.show),
-    studies: data2
-  };
-};
+    studies,
+    jobs
+  }
+}
 
-export default Index;
+export default withLang(Index)
+
+// <Link href="/post/[id]" as={`/post/${show.id}`}>
+// <a>{show.id}</a>
+// </Link>
