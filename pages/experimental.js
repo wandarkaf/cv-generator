@@ -1,7 +1,7 @@
 // Translations
-import withLang from '../components/withLang'
+import withLang from '../components/languages/withLang'
 // Components
-import Layout from '../components/layout'
+import Layout from '../components/layouts/layout'
 
 const Experimental = () => {
   return (

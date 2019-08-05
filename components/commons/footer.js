@@ -1,6 +1,6 @@
 // translations
 import { Trans } from '@lingui/macro'
-import FooterStrips from './footerStrips'
+import FooterStrips from '../decorations/footerStrips'
 import moment from 'moment'
 
 class Footer extends React.Component {

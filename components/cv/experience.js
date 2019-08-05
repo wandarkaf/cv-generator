@@ -1,5 +1,5 @@
 import Markdown from 'react-markdown'
-import { time } from '../utils/utils'
+import { time } from '../../utils/utils'
 
 const Experience = ({show, lang}) => (
   <div className="box-space">

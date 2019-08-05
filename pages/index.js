@@ -2,13 +2,13 @@
 import fetch from 'isomorphic-unfetch'
 // Translations
 import { I18n } from '@lingui/react'
-import withLang from '../components/withLang'
+import withLang from '../components/languages/withLang'
 // components
-import Layout from '../components/layout'
-import Education from '../components/education'
-import Experience from '../components/experience'
-import Logo from '../components/logo'
-import List from '../components/list'
+import Layout from '../components/layouts/layout'
+import Education from '../components/cv/education'
+import Experience from '../components/cv/experience'
+import Logo from '../components/cv/logo'
+import List from '../components/commons/list'
 
 import {
   API_ROOT_URL

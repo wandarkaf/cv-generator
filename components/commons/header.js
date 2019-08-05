@@ -2,7 +2,7 @@ import { withRouter } from 'next/router'
 import Link from 'next/link'
 // translations
 import { Trans } from '@lingui/macro'
-import LangSwitcher from './langSwitcher'
+import LangSwitcher from '../languages/langSwitcher'
 
 class Header extends React.Component {
   async componentDidMount() {

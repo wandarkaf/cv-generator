@@ -1,4 +1,4 @@
-import { time } from '../utils/utils'
+import { time } from '../../utils/utils'
 
 const Education = ({show, lang}) => (
   <div className="box-space">

@@ -1,4 +1,4 @@
-import Strips from './strips'
+import Strips from '../decorations/strips'
 import { Trans } from '@lingui/macro'
 
 const Logo = ({ profile }) => (

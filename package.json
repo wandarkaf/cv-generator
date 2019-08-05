@@ -10,6 +10,7 @@
     "extract": "lingui extract"
   },
   "dependencies": {
+    "@lingui/react": "latest",
     "@zeit/next-sass": "^1.0.1",
     "isomorphic-unfetch": "^3.0.0",
     "moment": "^2.24.0",
@@ -17,8 +18,8 @@
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-markdown": "^4.1.0",
-    "@lingui/react": "latest"
+    "react-ga": "^2.6.0",
+    "react-markdown": "^4.1.0"
   },
   "devDependencies": {
     "@lingui/cli": "latest",
