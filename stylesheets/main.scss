@@ -5,6 +5,7 @@
 @import 'typography.scss';
 @import 'stripes.scss';
 @import 'loader.scss';
+@import 'bulletpoint.scss';
 
 *{
   margin: 0;
@@ -40,6 +41,18 @@ body {
     0px 18px 23px rgba(0,0,0,0.1);
     color: white;
     font-family: 'Holtwood One SC', serif;
+  }
+}
+
+.project {
+  margin: 25px 0 35px;
+  ul{
+    margin-right: 15px;
+    li{
+      list-style: none;
+      display: inline-flex;
+      margin-right: 15px;
+    }
   }
 }
 

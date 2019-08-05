@@ -9,5 +9,4 @@ const List = ({children, title, measure}) => (
   </div>
 )
 
-
 export default List

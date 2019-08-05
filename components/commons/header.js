@@ -5,9 +5,6 @@ import { Trans } from '@lingui/macro'
 import LangSwitcher from '../languages/langSwitcher'
 
 class Header extends React.Component {
-  async componentDidMount() {
-    console.log(this.props.router.asPath)
-  }
 
   handleActivePathClass = (path, current) => 
     path === current ? 'active' : 'inactive'
@@ -30,11 +27,6 @@ class Header extends React.Component {
                     <Trans>Home</Trans>
                   </a>
                 </Link>
-                <Link href={this.handleLangPath('/experimental', router.query.lang)}>
-                  <a className={`btn ${this.handleActivePathClass(path, 'experimental')}`}>
-                    <Trans>Experimental</Trans>
-                  </a>
-                </Link>
               </p>
             </div>
           </div>
@@ -50,3 +42,9 @@ class Header extends React.Component {
 }
 
 export default withRouter(Header)
+
+// <Link href={this.handleLangPath('/experimental', router.query.lang)}>
+//   <a className={`btn ${this.handleActivePathClass(path, 'experimental')}`}>
+//     <Trans>Experimental</Trans>
+//   </a>
+// </Link>

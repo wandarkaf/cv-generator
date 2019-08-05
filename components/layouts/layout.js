@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head'
 // Google analytics
 import { initGA, logPageView } from '../../utils/analytics'
 // Components
@@ -46,6 +47,9 @@ class Layout extends React.Component {
     } else {
       return (
         <div>
+          <Head>
+            <title>{'Alonso Lamas'}</title>
+          </Head>
           <Header />
           {childrenWithProps}
           <Footer show={ profile } />

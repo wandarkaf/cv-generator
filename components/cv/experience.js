@@ -1,4 +1,6 @@
 import Markdown from 'react-markdown'
+import Project from '../cv/project'
+import BulletPoint from '../decorations/bulletPoint'
 import { time } from '../../utils/utils'
 
 const Experience = ({show, lang}) => (
@@ -10,22 +12,14 @@ const Experience = ({show, lang}) => (
     </h5>
 
     <div className="box-space-square">
-      <p className="subtitle1">{show[`name_${lang}`]}</p>
+      <p className="subtitle2">{show[`name_${lang}`]}</p>
       <p className="subtitle2">{time(lang, show.startDate)} - {time(lang, show.endDate)}</p>
-      <p>{show.location[`name_${lang}`]}</p>
+      <p className="subtitle2">{show.location[`name_${lang}`]}</p>
     </div>
 
     <Markdown source={show[`description_${lang}`]}/>
-
-    {show.projects.map(project => (
-      <p className="subtitle2" key={project.url}>
-        <a 
-          target="_blank" 
-          href={project.url}>
-          {project.name}  
-        </a>
-      </p>
-    ))}
+    
+    <Project projects={show.projects} />
   </div>
 )
 

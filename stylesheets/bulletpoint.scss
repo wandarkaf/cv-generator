@@ -1,0 +1,61 @@
+.bullet-point-box{
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  position: relative;
+
+  .circle {
+    display: inline-block;
+    text-align: center;
+    border-radius:50%;
+    background-size: cover;
+    position: absolute;
+  }
+
+  .bullet-1{
+    width: 30px;
+    height: 30px;
+    background-color: #9F280A;
+  }
+
+  .bullet-2{
+    width: 25px;
+    height: 25px;
+    top: 2.5px;
+    left: 2.5px;
+    background-color: #BC320D;
+  }
+
+  .bullet-3{
+    width: 20px;
+    height: 20px;
+    top: 5px;
+    left: 5px;
+    background-color: #EC6806;
+  }
+
+  .bullet-4{
+    width: 15px;
+    height: 15px;
+    top: 7.5px;
+    left: 7.5px;
+    background-color: #FFB901;
+  }
+
+  .bullet-5{
+    width: 10px;
+    height: 10px;
+    top: 10px;
+    left: 10px;
+    background-color: #958823;
+  }
+
+  .bullet-6{
+    width: 5px;
+    height: 5px;
+    top: 12.5px;
+    left: 12.5px;
+    background-color: #2F7443;
+  }
+}
+
