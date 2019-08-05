@@ -1,6 +1,5 @@
 import Strips from './strips'
 import { Trans } from '@lingui/macro'
-import withLang from './withLang'
 
 const Logo = ({ profile }) => (
   <div className="row">
@@ -14,4 +13,4 @@ const Logo = ({ profile }) => (
   </div>
 )
 
-export default withLang(Logo)
+export default Logo

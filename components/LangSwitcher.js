@@ -1,44 +1,40 @@
 import Router from 'next/router'
 import { I18n } from '@lingui/react'
-import { t, Trans } from '@lingui/macro'
+import { Trans } from '@lingui/macro'
 
-const availableLanguageNames = {
-  en: t`English`,
-  es: t`Spanish`
-}
-const availableLanguages = Object.keys(availableLanguageNames)
+class LangSwitcher extends React.Component {
 
-export default () => {
-  function onSubmit (evt) {
-    evt.preventDefault()
+  handlelanguage = lang => e => {
+    e.preventDefault()
     Router.push({
       pathname: window.location.pathname,
-      query: { lang: evt.currentTarget.lang.value }
+      query: { lang }
     })
   }
 
-  return (
-    <I18n>
-      {({ i18n }) => (
-        <form onSubmit={onSubmit}>
-          <select
-            key={i18n.language}
-            name='lang'
-            defaultValue={availableLanguages.find(
-              lang => lang !== i18n.language
-            )}
-          >
-            {availableLanguages.map(lang => (
-              <option key={lang} value={lang} disabled={i18n.language === lang}>
-                {i18n._(availableLanguageNames[lang])}
-              </option>
-            ))}
-          </select>
-          <button>
-            <Trans>Switch language</Trans>
-          </button>
-        </form>
-      )}
-    </I18n>
-  )
+  handleActiveLangClass = (curr, lang) => 
+    curr === lang ? 'active' : 'inactive'
+
+  render() {
+    return (
+      <I18n>
+        {({ i18n }) => (
+          <p className="language">
+            <span 
+              className={`btn ${this.handleActiveLangClass(i18n.language, 'es')}`}
+              onClick={this.handlelanguage('es')}>
+              <Trans>ES</Trans>
+            </span>
+            <span 
+              className={`btn ${this.handleActiveLangClass(i18n.language, 'en')}`}
+              onClick={this.handlelanguage('en')}>
+              <Trans>EN</Trans>
+            </span>
+          </p>
+        )}
+      </I18n>
+    )
+  }
 }
+
+export default LangSwitcher

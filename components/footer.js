@@ -1,6 +1,5 @@
 // translations
 import { Trans } from '@lingui/macro'
-import withLang from './withLang'
 import FooterStrips from './footerStrips'
 import moment from 'moment'
 
@@ -20,4 +19,5 @@ class Footer extends React.Component {
   }
 }
 
-export default withLang(Footer)
+export default Footer
+

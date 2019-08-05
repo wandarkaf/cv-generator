@@ -1,46 +1,48 @@
-import Layout from '../components/layout'
+// API
 import fetch from 'isomorphic-unfetch'
-import { Trans } from '@lingui/macro'
+// Translations
+import { I18n } from '@lingui/react'
 import withLang from '../components/withLang'
-// import LangSwitcher from '../components/LangSwitcher'
+// components
+import Layout from '../components/layout'
 import Education from '../components/education'
 import Experience from '../components/experience'
 import Logo from '../components/logo'
+import List from '../components/list'
 
 import {
   API_ROOT_URL
 } from '../constants'
 
 class Index extends React.Component {
+
+  upperLang = (lang) => lang.toUpperCase()
+
   render() {
-    const { studies, jobs, language } = this.props
-    // const lang = language.toUpperCase()
-    const lang = 'EN'
+    const { studies, jobs } = this.props
 
     return (
-      <Layout>
-        <Logo/>
-        <div className="row">
-          <div className="col-xs-12 col-sm-7 col-md-8 col-lg-8">
-              <div className="box">             
-                <h3><Trans>Experience</Trans></h3>
-                {jobs.map(exp => (
-                  <Experience key={exp.id} show={exp} lang={lang} />
-                ))}
-              </div>
-          </div>
+      <I18n>
+      {({ i18n }) => (
+        <Layout>
+          <Logo/>
 
-          <div className="col-xs-12 col-sm-5 col-md-4 col-lg-4">
-            <div className="box">  
-              <h3><Trans>Studies</Trans></h3>
-              {studies.map(education => (
-                <Education key={education.id} show={education} lang={lang} />
+          <div className="row">
+            <List title="Experience" measure="col-xs-12 col-sm-7 col-md-8 col-lg-8">
+              {jobs.map(exp => (
+                <Experience key={exp.id} show={exp} lang={this.upperLang(i18n.language)} />
               ))}
-            </div>
+            </List>
+
+            <List title="Studies" measure="col-xs-12 col-sm-5 col-md-4 col-lg-4">
+              {studies.map(education => (
+                <Education key={education.id} show={education} lang={this.upperLang(i18n.language)} />
+              ))}
+            </List>
           </div>
-        </div>
-        
-      </Layout>
+        </Layout>
+      )}
+      </I18n>
     )
   }
 }
@@ -50,7 +52,6 @@ Index.getInitialProps = async function() {
   const searchProfile = `?profileId=${profileId}&_sort=startDate&_order=desc`
   
   // fake API call
-
   const resStudies = await fetch(`${API_ROOT_URL}studies${searchProfile}`)
   const studies = await resStudies.json()
 

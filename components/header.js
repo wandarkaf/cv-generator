@@ -2,47 +2,22 @@ import { withRouter } from 'next/router'
 import Link from 'next/link'
 // translations
 import { Trans } from '@lingui/macro'
-import withLang from './withLang'
+import LangSwitcher from './langSwitcher'
 
 class Header extends React.Component {
-  state = {
-    language: ''
+  async componentDidMount() {
+    console.log(this.props.router.asPath)
   }
-
-  componentDidMount() {
-    // this.setState({ language: i18n.language })
-    this.setState({ language: 'en' })    
-  }
-
-  handlelanguage = lang => e => {
-    e.preventDefault()
-    i18n.changeLanguage(lang)
-    this.setState({ language: lang })
-  }
-
-  handleActiveLangClass = lang => 
-    this.state.language === lang ? 'active' : 'inactive'
 
   handleActivePathClass = (path, current) => 
     path === current ? 'active' : 'inactive'
 
+  handleLangPath = (path, lang) => 
+    lang ? `${path}?lang=${lang}` : path
+
   render() {
     const { router } = this.props
     const path = router.pathname.slice(1)
-
-    const language = (
-      <p className="language">
-        <span 
-          className={`btn ${this.handleActiveLangClass('es')}`}
-          onClick={this.handlelanguage('es')}>
-          <Trans>ES</Trans>
-        </span>
-        <span 
-          className={`btn ${this.handleActiveLangClass('en')}`}
-          onClick={this.handlelanguage('en')}>
-          <Trans>EN</Trans>
-        </span>
-      </p>)
 
     return (
       <nav className="menu">
@@ -50,12 +25,12 @@ class Header extends React.Component {
           <div className="col-xs-8">
             <div className="box">
               <p>
-                <Link href="/">
+                <Link href={this.handleLangPath('/', router.query.lang)}>
                   <a className={`btn ${this.handleActivePathClass(path, '')}`}>
                     <Trans>Home</Trans>
                   </a>
                 </Link>
-                <Link href="/experimental">
+                <Link href={this.handleLangPath('/experimental', router.query.lang)}>
                   <a className={`btn ${this.handleActivePathClass(path, 'experimental')}`}>
                     <Trans>Experimental</Trans>
                   </a>
@@ -65,6 +40,7 @@ class Header extends React.Component {
           </div>
           <div className="col-xs-4">
             <div className="box">
+              <LangSwitcher />
             </div>
           </div>
         </div>
@@ -73,4 +49,4 @@ class Header extends React.Component {
   }
 }
 
-export default withRouter(withLang(Header))
+export default withRouter(Header)

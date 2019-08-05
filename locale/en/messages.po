@@ -15,7 +15,7 @@ msgstr ""
 
 #: components/header.js:43
 msgid "EN"
-msgstr "ES"
+msgstr "EN"
 
 #: components/header.js:38
 msgid "ES"
