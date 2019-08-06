@@ -1,4 +1,4 @@
 // API URL
-export const API_ROOT_URL = 'https://cv-quick-db-git-develop.kamina.now.sh/'
+export const API_ROOT_URL = 'https://cvnetwork.now.sh/'
 
 // API SEARCh
