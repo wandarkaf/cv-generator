@@ -16,7 +16,7 @@ import {
 
 class Index extends React.Component {
 
-  upperLang = (lang) => lang.toUpperCase()
+  // upperLang = (lang) => lang.toUpperCase()
 
   render() {
     const { studies, jobs } = this.props
@@ -30,13 +30,13 @@ class Index extends React.Component {
           <div className="row">
             <List title="Experience" measure="col-xs-12 col-sm-7 col-md-8 col-lg-8">
               {jobs.map(exp => (
-                <Experience key={exp.id} show={exp} lang={this.upperLang(i18n.language)} />
+                <Experience key={exp.id} show={exp} lang={i18n.language} />
               ))}
             </List>
 
             <List title="Studies" measure="col-xs-12 col-sm-5 col-md-4 col-lg-4">
               {studies.map(education => (
-                <Education key={education.id} show={education} lang={this.upperLang(i18n.language)} />
+                <Education key={education.id} show={education} lang={i18n.language} />
               ))}
             </List>
           </div>

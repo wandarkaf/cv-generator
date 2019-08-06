@@ -1,6 +1,6 @@
 {
   "name": "alonso",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "dev": "next",
@@ -19,6 +19,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-ga": "^2.6.0",
+    "react-icons": "^3.7.0",
     "react-markdown": "^4.1.0"
   },
   "devDependencies": {
