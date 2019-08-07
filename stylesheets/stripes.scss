@@ -356,55 +356,44 @@
 // footer
 
 .footer-stripe-box{
+  position: relative;
   width:30em;
-  height:90px;
-  // margin-top: -9em; /*set to a negative number 1/2 of your height*/
-  margin-left: -15em; /*set to a negative number 1/2 of your width*/
-  position: absolute;
-  z-index: -1;
-  bottom: -16px;
-  left: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-stripe {
+  height: 15px;
+  margin: 0 auto;
 }
 
 .footer-stripe-1 {
-  width: 100%;
-  height: 15px;
   background-color: #9F280A;
 }
 
 .footer-stripe-2 {
   width: 95%;
-  height: 15px;
   background-color: #BC320D;
-  margin-left: 2.5%;
 }
 
 .footer-stripe-3 {
   width: 90%;
-  height: 15px;
   background-color: #EC6806;
-  margin-left: 5%;
 }
 
 .footer-stripe-4 {
   width: 85%;
-  height: 15px;
   background-color: #FFB901;
-  margin-left: 7.5%;
 }
 
 .footer-stripe-5 {
   width: 80%;
-  height: 15px;
   background-color: #958823;
-  margin-left: 10%;
 }
 
 .footer-stripe-6 {
   width: 75%;
-  height: 15px;
   background-color: #2F7443;
-  margin-left: 12.5%;
 }
 
 

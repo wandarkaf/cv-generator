@@ -90,29 +90,36 @@ nav {
 // FOOTER
 
 footer {
-  position: relative;
-  text-align: center;
-  margin: 70px 0 0px;
+  margin: 70px auto 0 auto;
   h5, a, .subtitle2 {
     font-family: 'Holtwood One SC', serif;
     color: white;
     // text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
     // 0px 8px 13px rgba(0,0,0,0.1),
     // 0px 18px 23px rgba(0,0,0,0.1);
-    text-align: center;
+    // text-align: center;
     &:hover {
       color: white;
     }
   }
-  .social-box{
-    display: block;
-    width: 100%;
-    margin-top: 3px;
-    .subtitle2{
-      font-size: 19px;
-      margin-right: 15px;
+  .social-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    .social-box {
+      margin-top: 3px;
+      .subtitle2 {
+        font-size: 19px;
+        margin-right: 15px;
+      }
+      .subtitle2:last-child {
+        margin: 0;
+      }
     }
   }
+  
 }
 
 @media only screen and (max-width: 650px) {
@@ -124,7 +131,6 @@ footer {
 
   .footer-stripe-box{
     width:20em;
-    margin-left: -10em;
   }
 }
 
