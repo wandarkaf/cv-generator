@@ -90,7 +90,7 @@ nav {
 // FOOTER
 
 footer {
-  margin: 70px auto 0 auto;
+  margin: 70px 0 0 0;
   h5, a, .subtitle2 {
     font-family: 'Holtwood One SC', serif;
     color: white;
@@ -108,6 +108,7 @@ footer {
     left: 50%;
     transform: translate(-50%, -50%);
     white-space: nowrap;
+    text-align: center;
     .social-box {
       margin-top: 3px;
       .subtitle2 {
@@ -128,10 +129,6 @@ footer {
       font-size: 19px;
     }
   }
-
-  .footer-stripe-box{
-    width:20em;
-  }
 }
 
 @media only screen and (max-width: 650px) {
@@ -139,3 +136,16 @@ footer {
   //   display: none;
   // }
 }
+
+@media only screen and (max-width: 650px) {
+  footer {
+    .footer-stripe-box {
+      .social-wrapper {
+        h5 {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
