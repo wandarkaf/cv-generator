@@ -1,10 +1,9 @@
 // translations
 import { Trans } from '@lingui/macro'
-import FooterStrips from '../decorations/footerStrips'
 import moment from 'moment'
-// Icons
 import { FaGithub, FaTwitter, FaWhatsapp } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
+import FooterStrips from '../decorations/footerStrips'
 
 class Footer extends React.Component {
   render() {
@@ -12,6 +11,7 @@ class Footer extends React.Component {
 
     return (
       <footer>
+        <div className="social-wrapper">
         <h5>
           {`© ${moment().year()} ${show.name}`} <br/>
         </h5>
@@ -37,7 +37,7 @@ class Footer extends React.Component {
             </a>
           </span>
         </div>
-        
+      </div>
         <FooterStrips />
       </footer>
     )
@@ -51,4 +51,3 @@ export default Footer
 //   <Trans id="footer.mail">email me!</Trans>
 // </a>
 // </p>
-
