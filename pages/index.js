@@ -11,7 +11,8 @@ import Logo from '../components/cv/logo'
 import List from '../components/commons/list'
 
 import {
-  API_ROOT_URL
+  API_ROOT_URL,
+  PROFILE_ID
 } from '../constants'
 
 class Index extends React.Component {
@@ -25,7 +26,7 @@ class Index extends React.Component {
       <I18n>
       {({ i18n }) => (
         <Layout>
-          <Logo/>
+          <Logo lang={i18n.language}/>
 
           <div className="row">
             <List title="Experience" measure="col-xs-12 col-sm-7 col-md-8 col-lg-8">
@@ -48,8 +49,7 @@ class Index extends React.Component {
 }
 
 Index.getInitialProps = async function() {
-  const profileId = 1
-  const searchProfile = `?profileId=${profileId}&_sort=startDate&_order=desc`
+  const searchProfile = `?profileId=${PROFILE_ID}&_sort=startDate&_order=desc`
   
   // fake API call
   const resStudies = await fetch(`${API_ROOT_URL}studies${searchProfile}`)

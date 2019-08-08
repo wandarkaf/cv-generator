@@ -37,10 +37,6 @@ msgstr "Experimental"
 msgid "Home"
 msgstr "Home"
 
-#: components/logo.js:10
-msgid "Software Engineer"
-msgstr "Software Engineer"
-
 #: components/LangSwitcher.js:7
 msgid "Spanish"
 msgstr "Spanish"
@@ -52,7 +48,3 @@ msgstr "Studies"
 #: components/LangSwitcher.js:38
 msgid "Switch language"
 msgstr "Switch language"
-
-#: components/footer.js:15
-msgid "footer.mail"
-msgstr "email me!"

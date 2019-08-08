@@ -1,0 +1,61 @@
+.footer-stripe-box{
+  width: 30em;
+  height: 90px;
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  left: 50%;
+  margin-left: -15em;
+}
+
+.footer-stripe {
+  height: 15px;
+  margin: 0 auto;
+}
+
+.footer-stripe-1 {
+  background-color: $line1;
+}
+
+.footer-stripe-2 {
+  width: 95%;
+  background-color: $line2;
+}
+
+.footer-stripe-3 {
+  width: 90%;
+  background-color: $line3;
+}
+
+.footer-stripe-4 {
+  width: 85%;
+  background-color: $line4;
+}
+
+.footer-stripe-5 {
+  width: 80%;
+  background-color: $line5;
+}
+
+.footer-stripe-6 {
+  width: 75%;
+  background-color: $line6;
+}
+
+@media only screen and (max-width: 650px) {
+  footer{
+    width: 100%;
+    position: absolute!important;
+    left: 0;
+    .footer-stripe-box {
+      width: 100%;
+      margin-left: 0;
+      left: 0;
+    }
+    .footer-stripe-2 { width: 100%; }
+    .footer-stripe-3 { width: 100%; }
+    .footer-stripe-4 { width: 100%; }
+    .footer-stripe-5 { width: 100%; }
+    .footer-stripe-6 { width: 100%; }
+  }
+}

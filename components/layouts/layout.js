@@ -8,7 +8,8 @@ import Footer from '../commons/footer'
 import Loader from '../decorations/loader'
 
 import {
-  API_ROOT_URL
+  API_ROOT_URL,
+  PROFILE_ID
 } from '../../constants'
 import "../../stylesheets/main.scss"
 
@@ -26,10 +27,8 @@ class Layout extends React.Component {
     }
     logPageView()
 
-    // profile
-    const profileId = 1
     // fake API call
-    const resProfile = await fetch(`${API_ROOT_URL}profiles?id=${profileId}`)
+    const resProfile = await fetch(`${API_ROOT_URL}profiles?id=${PROFILE_ID}`)
     const profile = await resProfile.json()
     await this.setState({ profile: profile[0], loader: false })
   }
@@ -48,7 +47,7 @@ class Layout extends React.Component {
       return (
         <div>
           <Head>
-            <title>{'Alonso Lamas'}</title>
+            <title>{profile.name}</title>
           </Head>
           <Header />
           {childrenWithProps}

@@ -17,5 +17,3 @@ npm run start
 ```
 
 This app is using **nextJS**. The documentation will be available. Meanwhile, explore the code for more details :).
-
-This project is just a fake API for my CV.
