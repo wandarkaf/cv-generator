@@ -1,0 +1,52 @@
+@mixin typography($size, $weight, $spacing) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $typo;
+  letter-spacing: $spacing;
+  text-align: left;
+}
+
+h1 { @include typography(96px, 300, -1.5px); }
+
+h2 { @include typography(60px, 300, -0.5px); }
+
+h3 { @include typography(48px, 400, normal); }
+
+h4 { @include typography(34px, 400, 0.25px); }
+
+h5 { @include typography(24px, 400, normal); }
+
+h6 { @include typography(20px, 500, 0.15px); }
+
+.subtitle1{
+  @include typography(16px, 400, 0.15px);
+  line-height: 24px;
+}
+
+.subtitle2 {
+  @include typography(14px, 500, 0.1px);
+  line-height: 24px;
+}
+
+.body1, p {
+  @include typography(16px, 400, 0.44px);
+  line-height: 28px;
+}
+
+.body2 {
+  @include typography(14px, 400, 0.44px);
+  line-height: 28px;
+}
+
+.btn {
+  @include typography(14px, 500, 1.35px);
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+  color: $typo;
+  &:hover {
+    color: $hover;
+  }
+}
