@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Holtwood+One+SC&display=swap');
 
-@import 'flexboxgrid.scss';
-@import 'typography.scss';
-@import 'stripes.scss';
-@import 'loader.scss';
-@import 'bulletpoint.scss';
+@import 'variables/colors';
+@import 'grid/flexboxgrid.scss';
+@import 'typography/typography.scss';
+@import 'decorations/decorations.scss';
 
 *{
   margin: 0;
@@ -29,6 +28,7 @@ body {
   margin: 12px 0 12px;
 }
 
+// LOGO
 .box-space-logo{
   margin: 28px 0 50px;
   .title{
@@ -36,16 +36,40 @@ body {
     line-height: 60px;
   }
   a, span, .title {
-    // text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-    // 0px 8px 13px rgba(0,0,0,0.1),
-    // 0px 18px 23px rgba(0,0,0,0.1);
     color: white;
     font-family: 'Holtwood One SC', serif;
   }
 }
 
-// PROJECT
+// HEADER
+nav {
+  span {
+    margin-left: 15px;
+    &:hover{
+      cursor: pointer;
+    }
+    &.active{
+      color: $line1;
+    }
+    &.inactive{
+      color: $typo;
+    }
+  }
+  .active{
+    color: $line1;
+  }
+  .inactive{
+    color: $typo;
+  }
+  a {
+    margin-right: 15px;
+  }
+  .language {
+    text-align: right;
+  }
+}
 
+// PROJECT
 .project {
   margin: 25px 0 35px;
   ul{
@@ -58,47 +82,14 @@ body {
   }
 }
 
-// HEADER
-
-nav {
-  span {
-    margin-left: 15px;
-    &:hover{
-      cursor: pointer;
-    }
-    &.active{
-      color: #9F280A;
-    }
-    &.inactive{
-      color: black;
-    }
-  }
-  .active{
-    color: #9F280A;
-  }
-  .inactive{
-    color: black;
-  }
-  a {
-    margin-right: 15px;
-  }
-  .language {
-    text-align: right;
-  }
-}
-
 // FOOTER
-
 footer {
   position: relative;
   margin: 70px 0 0 0;
+  height: 90px;
   h5, a, .subtitle2 {
     font-family: 'Holtwood One SC', serif;
     color: white;
-    // text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-    // 0px 8px 13px rgba(0,0,0,0.1),
-    // 0px 18px 23px rgba(0,0,0,0.1);
-    // text-align: center;
     &:hover {
       color: white;
     }
@@ -121,7 +112,6 @@ footer {
       }
     }
   }
-  
 }
 
 @media only screen and (max-width: 650px) {
@@ -130,23 +120,8 @@ footer {
       font-size: 19px;
     }
   }
-}
-
-@media only screen and (max-width: 650px) {
-  // .language {
-  //   display: none;
-  // }
-}
-
-@media only screen and (max-width: 650px) {
-  footer {
-    .footer-stripe-box {
-      .social-wrapper {
-        h5 {
-          font-size: 12px;
-        }
-      }
-    }
+  body {
+    padding: 10px 20px 0px;
   }
 }
 

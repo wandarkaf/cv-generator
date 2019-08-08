@@ -4,11 +4,11 @@ $time:2s;
 
 .loader {
   position: fixed;
-  position: absolute; /*This is to work better with codepen with the pen title*/
+  position: absolute;
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);
-  animation: spin $time*4 infinite linear 0s; /*Un-note this to see the whole thing spin*/
+  animation: spin $time*4 infinite linear 0s;
   .d1,.d2,.d3,.d4,.d5 {
     position: absolute;
     width:10px;
@@ -35,9 +35,9 @@ $time:2s;
 }
 @keyframes rotate {
   0% {
-    border-top: $size solid #9F280A;
+    border-top: $size solid $line1;
     border-left: $size solid transparent;
-    border-bottom: $size solid #FFB901;
+    border-bottom: $size solid $line4;
     border-right: $size solid transparent;
     transform:translate(-50%,-50%) rotate(0deg);
     width:2px; height:2px;
@@ -47,9 +47,9 @@ $time:2s;
   }
   100% {
     border-top: $size solid transparent;
-    border-left: $size solid #9F280A;
+    border-left: $size solid $line1;
     border-bottom: $size solid transparent;
-    border-right: $size solid #FFB901;
+    border-right: $size solid $line4;
     transform:translate(-50%,-50%) rotate(90deg);
     width:2px; height:2px;
   }

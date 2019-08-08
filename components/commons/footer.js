@@ -12,32 +12,32 @@ class Footer extends React.Component {
     return (
       <footer>
         <div className="social-wrapper">
-        <h5>
-          {`© ${moment().year()} ${show.name}`} <br/>
-        </h5>
-        <div className="social-box">
-          <span className="subtitle2">
-            <a href={`mailto:${show.email}`}>
-              <MdEmail />
-            </a>
-          </span>
-          <span className="subtitle2">
-            <a href={show.github} target="_blank">
-              <FaGithub />
-            </a>
-          </span>
-          <span className="subtitle2">
-            <a href={show.twitter} target="_blank">
-              <FaTwitter />
-            </a>
-          </span>
-          <span className="subtitle2">
-            <a href={`tel:${show.phone}`} target="_blank">
-              <FaWhatsapp />
-            </a>
-          </span>
+          <h5>
+            {`© ${moment().year()} ${show.name}`} <br/>
+          </h5>
+          <div className="social-box">
+            <span className="subtitle2">
+              <a href={`mailto:${show.email}`}>
+                <MdEmail />
+              </a>
+            </span>
+            <span className="subtitle2">
+              <a href={show.github} target="_blank">
+                <FaGithub />
+              </a>
+            </span>
+            <span className="subtitle2">
+              <a href={show.twitter} target="_blank">
+                <FaTwitter />
+              </a>
+            </span>
+            <span className="subtitle2">
+              <a href={`tel:${show.phone}`} target="_blank">
+                <FaWhatsapp />
+              </a>
+            </span>
+          </div>
         </div>
-      </div>
         <FooterStrips />
       </footer>
     )
