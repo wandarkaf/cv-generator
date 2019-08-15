@@ -7,7 +7,11 @@
     "build": "lingui compile && next build",
     "start": "next start",
     "add-locale": "lingui add-locale",
-    "extract": "lingui extract"
+    "extract": "lingui extract",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "test": "standard",
+    "test:fix": "standard --fix"
   },
   "dependencies": {
     "@lingui/react": "latest",
@@ -23,10 +27,18 @@
     "react-markdown": "^4.1.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.5.5",
     "@lingui/cli": "latest",
     "@lingui/loader": "latest",
     "@lingui/macro": "latest",
-    "babel-plugin-macros": "^2.4.0"
+    "@storybook/addon-actions": "^5.1.10",
+    "@storybook/addon-links": "^5.1.10",
+    "@storybook/addons": "^5.1.10",
+    "@storybook/react": "^5.1.10",
+    "babel-eslint": "^10.0.2",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-macros": "^2.4.0",
+    "standard": "*"
   },
   "lingui": {
     "sourceLocale": "en",
@@ -36,6 +48,9 @@
       "./components/"
     ],
     "format": "po"
+  },
+  "standard": {
+    "parser": "babel-eslint"
   },
   "license": "ISC"
 }

@@ -1,3 +1,4 @@
+import React from 'react'
 // API
 import fetch from 'isomorphic-unfetch'
 // Translations
@@ -16,41 +17,40 @@ import {
 } from '../constants'
 
 class Index extends React.Component {
-
   // upperLang = (lang) => lang.toUpperCase()
 
-  render() {
+  render () {
     const { studies, jobs } = this.props
 
     return (
       <I18n>
-      {({ i18n }) => (
-        <Layout>
-          <Logo lang={i18n.language}/>
+        {({ i18n }) => (
+          <Layout>
+            <Logo lang={i18n.language} />
 
-          <div className="row">
-            <List title="Experience" measure="col-xs-12 col-sm-7 col-md-8 col-lg-8">
-              {jobs.map(exp => (
-                <Experience key={exp.id} show={exp} lang={i18n.language} />
-              ))}
-            </List>
+            <div className='row'>
+              <List title='Experience' measure='col-xs-12 col-sm-7 col-md-8 col-lg-8'>
+                {jobs.map(exp => (
+                  <Experience key={exp.id} show={exp} lang={i18n.language} />
+                ))}
+              </List>
 
-            <List title="Studies" measure="col-xs-12 col-sm-5 col-md-4 col-lg-4">
-              {studies.map(education => (
-                <Education key={education.id} show={education} lang={i18n.language} />
-              ))}
-            </List>
-          </div>
-        </Layout>
-      )}
+              <List title='Studies' measure='col-xs-12 col-sm-5 col-md-4 col-lg-4'>
+                {studies.map(education => (
+                  <Education key={education.id} show={education} lang={i18n.language} />
+                ))}
+              </List>
+            </div>
+          </Layout>
+        )}
       </I18n>
     )
   }
 }
 
-Index.getInitialProps = async function() {
+Index.getInitialProps = async function () {
   const searchProfile = `?profileId=${PROFILE_ID}&_sort=startDate&_order=desc`
-  
+
   // fake API call
   const resStudies = await fetch(`${API_ROOT_URL}studies${searchProfile}`)
   const studies = await resStudies.json()
