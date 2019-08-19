@@ -13,38 +13,50 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/header.js:43
+#: components/commons/header.js:32
+msgid "About"
+msgstr "About"
+
+#: components/languages/langSwitcher.js:31
 msgid "EN"
 msgstr "EN"
 
-#: components/header.js:38
+#: components/languages/langSwitcher.js:26
 msgid "ES"
 msgstr "ES"
 
 #: components/LangSwitcher.js:6
-msgid "English"
-msgstr "English"
+#~ msgid "English"
+#~ msgstr "English"
 
 #: pages/index.js:29
-msgid "Experience"
-msgstr "Experience"
+#~ msgid "Experience"
+#~ msgstr "Experience"
 
 #: components/header.js:60
-msgid "Experimental"
-msgstr "Experimental"
+#~ msgid "Experimental"
+#~ msgstr "Experimental"
 
-#: components/header.js:55
+#: components/commons/header.js:27
 msgid "Home"
 msgstr "Home"
 
-#: components/LangSwitcher.js:7
-msgid "Spanish"
-msgstr "Spanish"
+#: pages/index.js:50
+msgid "Skills"
+msgstr "Skills"
 
-#: pages/index.js:38
+#: components/LangSwitcher.js:7
+#~ msgid "Spanish"
+#~ msgstr "Spanish"
+
+#: pages/index.js:46
 msgid "Studies"
 msgstr "Studies"
 
 #: components/LangSwitcher.js:38
-msgid "Switch language"
-msgstr "Switch language"
+#~ msgid "Switch language"
+#~ msgstr "Switch language"
+
+#: pages/about.js:11
+msgid "about"
+msgstr "this is my history"

@@ -27,6 +27,11 @@ class Header extends React.Component {
                     <Trans>Home</Trans>
                   </a>
                 </Link>
+                <Link href={this.handleLangPath('/about', router.query.lang)}>
+                  <a className={`btn ${this.handleActivePathClass(path, 'about')}`}>
+                    <Trans>About</Trans>
+                  </a>
+                </Link>
               </p>
             </div>
           </div>
