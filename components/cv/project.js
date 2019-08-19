@@ -1,16 +1,16 @@
 import BulletPoint from '../decorations/bulletPoint'
 
 const Project = ({ projects }) => (
-  <section className="project">
+  <section className='project'>
     <ul>
       {projects.map(project => (
         <li key={project.url}>
           <BulletPoint />
-          <a 
-            className="body1"
-            target="_blank" 
+          <a
+            className='body1'
+            target='_blank'
             href={project.url}>
-            {project.name}  
+            {project.name}
           </a>
         </li>
       ))}

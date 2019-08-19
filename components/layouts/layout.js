@@ -1,5 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
+// API
+import fetch from 'isomorphic-unfetch'
 // Google analytics
 import { initGA, logPageView } from '../../utils/analytics'
 // Components
@@ -11,7 +13,7 @@ import {
   API_ROOT_URL,
   PROFILE_ID
 } from '../../constants'
-import "../../stylesheets/main.scss"
+import '../../stylesheets/main.scss'
 
 class Layout extends React.Component {
   state = {
@@ -19,7 +21,7 @@ class Layout extends React.Component {
     loader: true
   }
 
-  async componentDidMount() {
+  async componentDidMount () {
     // analytics
     if (!window.GA_INITIALIZED) {
       initGA()
@@ -33,13 +35,13 @@ class Layout extends React.Component {
     await this.setState({ profile: profile[0], loader: false })
   }
 
-  render() {
+  render () {
     const { profile, loader } = this.state
-    const childrenWithProps = React.Children.map(this.props.children, 
+    const childrenWithProps = React.Children.map(this.props.children,
       child => React.cloneElement(child, { profile })
     )
 
-    if(loader) {
+    if (loader) {
       return (
         <Loader />
       )
@@ -51,7 +53,7 @@ class Layout extends React.Component {
           </Head>
           <Header />
           {childrenWithProps}
-          <Footer show={ profile } />
+          <Footer show={profile} />
         </div>
       )
     }
