@@ -5,7 +5,7 @@ import { time } from '../../utils/utils'
 const Experience = ({ show, lang }) => (
   <div className='box-space'>
     <h5>
-      <a target='_blank' href={show.company.url}>
+      <a target='_blank' href={show.company.url} rel='noopener noreferrer'>
         {show.company.name}
       </a>
     </h5>

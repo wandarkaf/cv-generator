@@ -22,12 +22,14 @@ class LangSwitcher extends React.Component {
           <p className='language'>
             <span
               className={`btn ${this.handleActiveLangClass(i18n.language, 'es')}`}
-              onClick={this.handlelanguage('es')}>
+              onClick={this.handlelanguage('es')}
+            >
               <Trans>ES</Trans>
             </span>
             <span
               className={`btn ${this.handleActiveLangClass(i18n.language, 'en')}`}
-              onClick={this.handlelanguage('en')}>
+              onClick={this.handlelanguage('en')}
+            >
               <Trans>EN</Trans>
             </span>
           </p>

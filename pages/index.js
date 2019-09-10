@@ -12,8 +12,6 @@ import Experience from '../components/cv/experience'
 import Logo from '../components/cv/logo'
 import List from '../components/commons/list'
 import CircularChart from '../components/graphs/circularChart'
-// utils
-// import { getData } from '../utils/graphs'
 
 import {
   API_ROOT_URL,
@@ -66,23 +64,24 @@ class Index extends React.Component {
 
 Index.getInitialProps = async function () {
   const searchProfile = `?profileId=${PROFILE_ID}&_sort=startDate&_order=desc`
-
-  // fake API call
-  const resStudies = await fetch(`${API_ROOT_URL}studies${searchProfile}`)
-  const studies = await resStudies.json()
-
-  const resJobs = await fetch(`${API_ROOT_URL}jobs${searchProfile}`)
-  const jobs = await resJobs.json()
-
-  const resSkills = await fetch(`${API_ROOT_URL}skills?profileId=${PROFILE_ID}`)
-  const skillsSet = await resSkills.json()
-  const skills = skillsSet[0]
+  // parallel request
+  const [studies, jobs, skills] = await Promise.all([
+    getData(`${API_ROOT_URL}studies${searchProfile}`),
+    getData(`${API_ROOT_URL}jobs${searchProfile}`),
+    getData(`${API_ROOT_URL}skills?profileId=${PROFILE_ID}`)
+  ])
 
   return {
     studies,
     jobs,
-    skills
+    skills: skills[0]
   }
+}
+
+const getData = async endpoint => {
+  const res = await fetch(endpoint)
+  const data = await res.json()
+  return data
 }
 
 export default withLang(Index)
