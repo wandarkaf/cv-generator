@@ -9,7 +9,9 @@ const Project = ({ projects }) => (
           <a
             className='body1'
             target='_blank'
-            href={project.url}>
+            href={project.url}
+            rel='noopener noreferrer'
+          >
             {project.name}
           </a>
         </li>

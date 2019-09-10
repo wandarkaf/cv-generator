@@ -3,7 +3,7 @@ import { time } from '../../utils/utils'
 const Education = ({ show, lang }) => (
   <div className='box-space'>
     <h5>
-      <a href={show.school_url} target='_blank'>
+      <a href={show.school_url} target='_blank' rel='noopener noreferrer'>
         {show[`school_${lang}`]}
       </a>
     </h5>

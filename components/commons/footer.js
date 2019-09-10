@@ -9,9 +9,9 @@ class Footer extends React.Component {
     const { show } = this.props
 
     return (
-      <footer>
+      <footer data-testid='footer'>
         <div className='social-wrapper'>
-          <h5>
+          <h5 data-testid='title'>
             {`© ${moment().year()} ${show.name}`} <br />
           </h5>
           <div className='social-box'>
@@ -21,17 +21,17 @@ class Footer extends React.Component {
               </a>
             </span>
             <span className='subtitle2'>
-              <a href={show.github} target='_blank'>
+              <a href={show.github} target='_blank' rel='noopener noreferrer'>
                 <FaGithub />
               </a>
             </span>
             <span className='subtitle2'>
-              <a href={show.twitter} target='_blank'>
+              <a href={show.twitter} target='_blank' rel='noopener noreferrer'>
                 <FaTwitter />
               </a>
             </span>
             <span className='subtitle2'>
-              <a href={`tel:${show.phone}`} target='_blank'>
+              <a href={`tel:${show.phone}`} target='_blank' rel='noopener noreferrer'>
                 <FaWhatsapp />
               </a>
             </span>
