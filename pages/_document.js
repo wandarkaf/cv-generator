@@ -1,9 +1,19 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-
+// Google analytics
+import { initGA, logPageView } from '../utils/analytics'
 class MyDocument extends Document {
   static async getInitialProps (ctx) {
     const initialProps = await Document.getInitialProps(ctx)
     return { ...initialProps }
+  }
+
+  componentDidMount () {
+    // analytics
+    if (!window.GA_INITIALIZED) {
+      initGA()
+      window.GA_INITIALIZED = true
+    }
+    logPageView()
   }
 
   render () {

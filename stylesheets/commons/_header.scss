@@ -1,0 +1,18 @@
+nav {
+  padding: 1em 0;
+  span, a {
+    margin-right: 1em;
+    &:hover{
+      cursor: pointer;
+    }
+    &.active{
+      color: $hover;
+    }
+    &.inactive{
+      color: $base;
+    }
+  }
+  .language {
+    text-align: right;
+  }
+}

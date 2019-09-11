@@ -7,9 +7,9 @@
 }
 
 .bullet-point-box{
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
+  width: 1.875em;
+  height: 1.875em;
+  margin-right: 0.625em;
   position: relative;
 
   .circle {
@@ -20,10 +20,10 @@
     position: absolute;
   }
 
-  .bullet-1{ @include bullet(30px, 30px, 0, 0, $line1); }
-  .bullet-2{ @include bullet(25px, 25px, 2.5px, 2.5px, $line2); }
-  .bullet-3{ @include bullet(20px, 20px, 5px, 5px, $line3); }
-  .bullet-4{ @include bullet(15px, 15px, 7.5px, 7.5px, $line4); }
-  .bullet-5{ @include bullet(10px, 10px, 10px, 10px, $line5); }
-  .bullet-6{ @include bullet(5px, 5px, 12.5px, 12.5px, $line6); }
+  .bullet-1{ @include bullet(1.875em, 1.875em, 0, 0, $line1); }
+  .bullet-2{ @include bullet(1.563em, 1.563em, 0.156em, 0.156em, $line2); }
+  .bullet-3{ @include bullet(1.250em, 1.250em, 0.313em, 0.313em, $line3); }
+  .bullet-4{ @include bullet(0.938em, 0.938em, 0.469em, 0.469em, $line4); }
+  .bullet-5{ @include bullet(0.625em, 0.625em, 0.625em, 0.625em, $line5); }
+  .bullet-6{ @include bullet(0.313em, 0.313em, 0.781em, 0.781em, $line6); }
 }

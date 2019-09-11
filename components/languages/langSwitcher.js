@@ -16,23 +16,25 @@ class LangSwitcher extends React.Component {
     curr === lang ? 'active' : 'inactive'
 
   render () {
+    const languages = [
+      { code: 'es', translation: 'ES' },
+      { code: 'en', translation: 'EN' }
+    ]
+
     return (
       <I18n>
         {({ i18n }) => (
-          <p className='language'>
-            <span
-              className={`btn ${this.handleActiveLangClass(i18n.language, 'es')}`}
-              onClick={this.handlelanguage('es')}
-            >
-              <Trans>ES</Trans>
-            </span>
-            <span
-              className={`btn ${this.handleActiveLangClass(i18n.language, 'en')}`}
-              onClick={this.handlelanguage('en')}
-            >
-              <Trans>EN</Trans>
-            </span>
-          </p>
+          <div className='language'>
+            {languages.map((language, i) =>
+              <span
+                key={i}
+                className={`btn ${this.handleActiveLangClass(i18n.language, language.code)}`}
+                onClick={this.handlelanguage(language.code)}
+              >
+                <Trans>{language.translation}</Trans>
+              </span>
+            )}
+          </div>
         )}
       </I18n>
     )

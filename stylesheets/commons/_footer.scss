@@ -1,0 +1,12 @@
+footer {
+  position: relative;
+  padding-top: 0.75em;
+  text-align: center;
+  a {
+    font-size: 1.250em;
+    margin-right: 1em;
+    &:last-child {
+      margin: 0;
+    }
+  }
+}

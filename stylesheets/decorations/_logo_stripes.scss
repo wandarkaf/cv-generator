@@ -1,6 +1,6 @@
 @mixin stripe($stripe, $width, $color) {
   width: $width;
-  height: 20px;
+  height: 1.250em;
   background-color: $color;
   animation: $stripe 10s ease-in-out 3s infinite alternate;
 }
@@ -17,10 +17,8 @@
 
 .stripe-box {
   width: 100%;
-  height: 120px;
   position: absolute;
   z-index: -1;
-  top: 50px;
   left: 0;
 } 
 
@@ -62,17 +60,17 @@
   62%: 95%, 64%: 91%, 66%: 99%, 68%: 92%, 70%: 100%, 90%: 65%, 100%: 65%)  
 );
 
-@media only screen and (max-width: 1056px) {
+@media only screen and (max-width: 66em) {
   .stripe-1, .stripe-2, .stripe-3, .stripe-4, .stripe-5, .stripe-6 {
     width: 100%;
     animation: none !important;
   }
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 40.625em) {
   .stripe-1, .stripe-2, .stripe-3, .stripe-4, .stripe-5, .stripe-6 {
     width: 100%;
-    height: 30px;
+    height: 1.875em;
     animation: none !important;
   }
 }
