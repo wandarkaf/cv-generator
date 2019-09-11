@@ -29,7 +29,7 @@ class Header extends React.Component {
               {links.map((link, i) =>
                 <Link key={i} href={this.handleLangPath(`/${link.route}`, router.query.lang)}>
                   <a className={`btn ${this.handleActivePathClass(path, link.route)}`}>
-                    <Trans>{link.translation}</Trans>
+                    <Trans id={link.translation} />
                   </a>
                 </Link>
               )}

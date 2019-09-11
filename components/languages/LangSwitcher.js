@@ -31,7 +31,7 @@ class LangSwitcher extends React.Component {
                 className={`btn ${this.handleActiveLangClass(i18n.language, language.code)}`}
                 onClick={this.handlelanguage(language.code)}
               >
-                <Trans>{language.translation}</Trans>
+                <Trans id={language.translation} />
               </span>
             )}
           </div>
