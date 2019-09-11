@@ -1,25 +1,21 @@
 import Markdown from 'react-markdown'
-import Project from '../cv/project'
-import { time } from '../../utils/utils'
+import Project from './Project'
+import { time } from '../../utils/commons'
 
 const Experience = ({ show, lang }) => (
-  <div className='box-space'>
+  <article>
     <h5>
       <a target='_blank' href={show.company.url} rel='noopener noreferrer'>
         {show.company.name}
       </a>
     </h5>
 
-    <div className='box-space-square'>
-      <p className='subtitle2'>{show[`name_${lang}`]}</p>
-      <p className='subtitle2'>{time(lang, show.startDate)} - {time(lang, show.endDate)}</p>
-      <p className='subtitle2'>{show.location[`name_${lang}`]}</p>
-    </div>
-
+    <p className='subtitle2'>{show[`name_${lang}`]}</p>
+    <p className='subtitle2'>{time(lang, show.startDate)} - {time(lang, show.endDate)}</p>
+    <p className='subtitle2'>{show.location[`name_${lang}`]}</p>
     <Markdown source={show[`description_${lang}`]} />
-
     <Project projects={show.projects} />
-  </div>
+  </article>
 )
 
 export default Experience

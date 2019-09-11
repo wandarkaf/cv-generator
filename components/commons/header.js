@@ -3,7 +3,7 @@ import { withRouter } from 'next/router'
 import Link from 'next/link'
 // translations
 import { Trans } from '@lingui/macro'
-import LangSwitcher from '../languages/langSwitcher'
+import LangSwitcher from '../languages/LangSwitcher'
 
 class Header extends React.Component {
   handleActivePathClass = (path, current) =>
@@ -16,23 +16,23 @@ class Header extends React.Component {
     const { router } = this.props
     const path = router.pathname.slice(1)
 
+    const links = [
+      { route: '', translation: 'Home' },
+      { route: 'about', translation: 'About' }
+    ]
+
     return (
       <nav className='menu'>
         <div className='row'>
           <div className='col-xs-8'>
             <div className='box'>
-              <p>
-                <Link href={this.handleLangPath('/', router.query.lang)}>
-                  <a className={`btn ${this.handleActivePathClass(path, '')}`}>
-                    <Trans>Home</Trans>
+              {links.map((link, i) =>
+                <Link key={i} href={this.handleLangPath(`/${link.route}`, router.query.lang)}>
+                  <a className={`btn ${this.handleActivePathClass(path, link.route)}`}>
+                    <Trans>{link.translation}</Trans>
                   </a>
                 </Link>
-                <Link href={this.handleLangPath('/about', router.query.lang)}>
-                  <a className={`btn ${this.handleActivePathClass(path, 'about')}`}>
-                    <Trans>About</Trans>
-                  </a>
-                </Link>
-              </p>
+              )}
             </div>
           </div>
           <div className='col-xs-4'>
@@ -47,9 +47,3 @@ class Header extends React.Component {
 }
 
 export default withRouter(Header)
-
-// <Link href={this.handleLangPath('/experimental', router.query.lang)}>
-//   <a className={`btn ${this.handleActivePathClass(path, 'experimental')}`}>
-//     <Trans>Experimental</Trans>
-//   </a>
-// </Link>

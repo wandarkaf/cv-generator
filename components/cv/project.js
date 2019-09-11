@@ -1,23 +1,21 @@
-import BulletPoint from '../decorations/bulletPoint'
+import BulletPoint from '../decorations/BulletPoint'
 
 const Project = ({ projects }) => (
-  <section className='project'>
-    <ul>
-      {projects.map(project => (
-        <li key={project.url}>
-          <BulletPoint />
-          <a
-            className='body1'
-            target='_blank'
-            href={project.url}
-            rel='noopener noreferrer'
-          >
-            {project.name}
-          </a>
-        </li>
-      ))}
-    </ul>
-  </section>
+  <ul>
+    {projects.map(project => (
+      <li key={project.url}>
+        <BulletPoint />
+        <a
+          className='body1'
+          target='_blank'
+          href={project.url}
+          rel='noopener noreferrer'
+        >
+          {project.name}
+        </a>
+      </li>
+    ))}
+  </ul>
 )
 
 export default Project
