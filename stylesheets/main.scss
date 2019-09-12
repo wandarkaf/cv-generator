@@ -43,18 +43,24 @@ body {
 
 // HEADER
 nav {
-  span {
-    margin-left: 15px;
-    &:hover{
-      cursor: pointer;
+  .language {
+    span {
+      margin-left: 15px;
+      &:hover{
+        cursor: pointer;
+      }
+      &.active{
+        color: $line1;
+      }
+      &.inactive{
+        color: $typo;
+      }
     }
-    &.active{
-      color: $line1;
-    }
-    &.inactive{
-      color: $typo;
+    span:first-child {
+      margin: 0;
     }
   }
+  
   .active{
     color: $line1;
   }
@@ -63,6 +69,9 @@ nav {
   }
   a {
     margin-right: 15px;
+  }
+  a:last-child {
+    margin: 0;
   }
   .language {
     text-align: right;
@@ -82,11 +91,10 @@ nav {
   }
 }
 
-// FOOTER
+//  
 footer {
+  margin-top: 4.375rem;
   position: relative;
-  margin: 70px 0 0 0;
-  height: 90px;
   h5, a, .subtitle2 {
     font-family: 'Holtwood One SC', serif;
     color: white;
