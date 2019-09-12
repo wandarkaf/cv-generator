@@ -1,0 +1,310 @@
+.baseball-card {
+  width: 348px;
+  height: 500px;
+  margin: 2em auto 5em;
+  perspective: 900px;
+  article {
+    width: 100%;
+    height: 100%;
+    border: solid 1px #CCC;
+    transition: 1s;
+    transform-style: preserve-3d;
+    position: relative;
+    border-radius: 3px;
+    &.flipped {
+      transform: rotateY(180deg);
+    }
+  }
+}
+
+.front,
+.back {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 2px 6px 15px $base;
+}
+
+.front {
+  background-color: #f8f8ee;
+  z-index: 2;
+  /* for firefox 31 */
+  transform: rotateY(0deg);
+}
+
+.back {
+  box-sizing: border-box;
+  background-color: $line4;
+  transform: rotateY(180deg);
+  padding: 0px;
+}
+
+.player-name {
+  font-style: normal;
+  color: $line1;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-top: .8em;
+  text-align: right;
+  margin-right: 1em;
+}
+
+.player-photo {
+  height: 86%;
+  width: 86%;
+  top: 10%;
+  left: 7%;
+  position: absolute;
+  background-repeat: no-repeat;
+  //  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  background-image: url(/static/player.jpg);
+  border: solid 1px $line5;
+  border-radius: 10px;
+  box-shadow: 0px 0px 0px 4px $line4, 0px 0px 0px 5px $line5;
+}
+
+.position {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  color: $negative;
+  position: absolute;
+  display: block;
+  font-size: .45em;
+  text-shadow: -1px -1px 0 $base, 1px -1px 0 $base, -1px 1px 0 $base, 1px 1px 0 $base;
+  transform: rotate(-15deg);
+  text-transform: uppercase;
+  top: 33px;
+  left: 23px;
+  z-index: 1;
+}
+
+.position-banner {
+  position: absolute;
+  display: block;
+  top: 20px;
+  left: 16px;
+}
+
+.team-banner {
+  position: absolute;
+  display: block;
+  bottom: 20px;
+  right: 15px;
+}
+
+.team {
+  margin: 0;
+  padding: 0;
+  color: $negative;
+  position: absolute;
+  display: block;
+  font-size: 1em;
+  text-shadow: -1px -1px 0 $base, 1px -1px 0 $base, -1px 1px 0 $base, 1px 1px 0 $base;
+  transform: rotate(-12deg);
+  text-transform: uppercase;
+  bottom: 44px;
+  right: 28px;
+  z-index: 1;
+}
+
+.flex-grid {
+  max-width: 100%;
+}
+
+.flex-row {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: flex-start;
+}
+
+.flex-cell {
+  order: 0;
+  flex: 1 1 auto;
+  align-self: stretch;
+}
+
+.flex-cell.width-01 {
+  flex: 0 0 8.3333333%;
+}
+
+.flex-cell.width-02 {
+  flex: 0 0 16.6666667%;
+}
+
+.flex-cell.width-03 {
+  flex: 0 0 25%;
+  line-height: 1.6em;
+}
+
+.flex-cell.width-04 {
+  flex: 0 0 33.33333333%;
+}
+
+.flex-cell.width-05 {
+  flex: 0 0 41.6666667%;
+}
+
+.flex-cell.width-06 {
+  flex: 0 0 50%;
+}
+
+.flex-cell.width-07 {
+  flex: 0 0 58.3333333%;
+}
+
+.flex-cell.width-08 {
+  flex: 0 0 66.6666667%;
+}
+
+.flex-cell.width-09 {
+  flex: 0 0 75%;
+}
+
+.flex-cell.width-10 {
+  flex: 0 0 83.3333333%;
+}
+
+.flex-cell.width-11 {
+  flex: 0 0 91.6666667%;
+}
+
+.flex-cell.width-12 {
+  flex: 0 0 100%;
+}
+
+.text-right { text-align: right; }
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+
+.back header {
+  display: block;
+  border: solid 3px $base;
+  border-radius: 28px;
+  position: relative;
+  padding: 4px 0 6px 0;
+  margin: 2px 10px 0px 10px;
+  background-color: #e8e1c7;
+}
+
+.card-number {
+  position: absolute;
+  top: -3px;
+  left: -2px;
+  border: solid 3px $base;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  line-height: .8em;
+  &:before {
+    content: "TOPPS";
+    display: block;
+    margin: .5em auto .1em auto;
+    font-size: .75em;
+  }
+}
+
+.header-grid {
+  margin: 0 8px 0 54px;
+}
+
+.header-player-name {
+  text-transform: uppercase;
+  font-size: 1.6em;
+  margin: 0;
+  padding: 0;
+  line-height: .9em;
+  text-shadow: 0px 1px 2px rgba(255, 255, 255, .6);
+}
+
+.header-player-position,
+.header-player-team {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.small-text {
+  font-size: 0.62em;
+}
+
+.bio {
+  font-size: 0.63em;
+  text-align: justify;
+  line-height: 1.05em;
+  padding-bottom: .2em;
+  padding-top: .2em;
+  font-size: .8em;
+  margin: 0.1em 10px;
+  border-bottom: solid 1px $base;
+}
+
+.table-title {
+  margin: 0 10px;
+  text-transform: uppercase;
+  font-size: .9em;
+  border-bottom: solid 1px $base;
+}
+
+.player-stats {
+  width: 94%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  height: 167px;
+  th, td {
+    text-align: right;
+    padding: 0.04em .01em;
+    margin: 0;
+    line-height: 10px;
+  }
+  thead tr th {
+    border-bottom: solid 1px $base;
+    padding-bottom: .4em;
+    padding-top: .4em;
+
+  }
+  tbody tr:last-child td {
+    border-bottom: solid 1px $base;
+
+  }
+  tr th:first-child, tr td:first-child {
+    font-weight: bold;
+    text-align: left;
+  }
+  tr:first-child td {
+    padding-top: .2em;
+  }
+  tr td:nth-child(2) {
+    text-align: left;
+  }
+  thead tr th {
+    font-weight: bold;
+  }
+  thead tr th:nth-child(2){
+    text-align: center;
+  }
+  tfoot tr{ height: 17px; }
+}
+
+.printed {
+  font-size: .7em;
+  text-align: right;
+  margin: .1em 0 0 0;
+  position: absolute;
+  bottom: 1px;
+  right: 11px;
+}

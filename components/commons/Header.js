@@ -2,8 +2,10 @@ import React from 'react'
 import { withRouter } from 'next/router'
 import Link from 'next/link'
 // translations
-import { Trans } from '@lingui/macro'
+// import { Trans } from '@lingui/macro'
 import LangSwitcher from '../languages/LangSwitcher'
+// icons
+import { FiHome, FiAtSign } from 'react-icons/fi'
 
 class Header extends React.Component {
   handleActivePathClass = (path, current) =>
@@ -17,8 +19,8 @@ class Header extends React.Component {
     const path = router.pathname.slice(1)
 
     const links = [
-      { route: '', translation: 'Home' },
-      { route: 'about', translation: 'About' }
+      { route: '', translation: 'Home', icon: <FiHome /> },
+      { route: 'about', translation: 'About', icon: <FiAtSign /> }
     ]
 
     return (
@@ -29,7 +31,7 @@ class Header extends React.Component {
               {links.map((link, i) =>
                 <Link key={i} href={this.handleLangPath(`/${link.route}`, router.query.lang)}>
                   <a className={`btn ${this.handleActivePathClass(path, link.route)}`}>
-                    <Trans id={link.translation} />
+                    {link.icon}
                   </a>
                 </Link>
               )}
