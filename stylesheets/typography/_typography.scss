@@ -19,7 +19,7 @@ h6 { @include typography(1.250em, 500); }
 .body2 { @include typography(0.875em, 400, 1.75em); }
 
 .btn {
-  @include typography(0.875em, 500);
+  @include typography(1.4em, 500);
   text-transform: uppercase;
 }
 
