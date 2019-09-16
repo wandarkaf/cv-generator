@@ -26,7 +26,7 @@ class Header extends React.Component {
     return (
       <nav className='menu'>
         <div className='row'>
-          <div className='col-xs-8'>
+          <div className='col-xs-10'>
             <div className='box'>
               {links.map((link, i) =>
                 <Link key={i} href={this.handleLangPath(`/${link.route}`, router.query.lang)}>
@@ -37,7 +37,7 @@ class Header extends React.Component {
               )}
             </div>
           </div>
-          <div className='col-xs-4'>
+          <div className='col-xs-2'>
             <div className='box'>
               <LangSwitcher />
             </div>
