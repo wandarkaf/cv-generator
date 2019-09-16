@@ -6,7 +6,8 @@ $time: 2s;
   position: absolute;
   top:50%;
   left:50%;
-  transform:translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
   animation: spin $time*4 infinite linear 0s;
   .d1,.d2,.d3,.d4,.d5 {
     position: absolute;
@@ -29,7 +30,8 @@ $time: 2s;
     border-left: $size solid transparent;
     border-bottom: $size solid $line4;
     border-right: $size solid transparent;
-    transform:translate(-50%,-50%) rotate(0deg);
+    -webkit-transform: translate(-50%,-50%) rotate(0deg);
+    transform: translate(-50%,-50%) rotate(0deg);
     width:0.125em; 
     height:0.125em;
   }
@@ -42,6 +44,7 @@ $time: 2s;
     border-left: $size solid $line1;
     border-bottom: $size solid transparent;
     border-right: $size solid $line4;
+    -webkit-transform: translate(-50%,-50%) rotate(90deg);
     transform: translate(-50%,-50%) rotate(90deg);
     width: 0.125em; 
     height: 0.125em;
@@ -49,8 +52,14 @@ $time: 2s;
 }
 
 @keyframes spin { 
-  0% { transform: translate(-50%,-50%) rotate(0deg); }
-  100% { transform: translate(-50%,-50%) rotate(360deg); }
+  0% { 
+    -webkit-transform: translate(-50%,-50%) rotate(0deg);
+    transform: translate(-50%,-50%) rotate(0deg); 
+  }
+  100% { 
+    -webkit-transform: translate(-50%,-50%) rotate(360deg);
+    transform: translate(-50%,-50%) rotate(360deg); 
+  }
 }
 
 

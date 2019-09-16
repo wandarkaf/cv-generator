@@ -21,6 +21,10 @@ h6 { @include typography(1.250em, 500); }
 .btn {
   @include typography(1.4em, 500);
   text-transform: uppercase;
+  cursor: pointer;
+  svg{
+    font-size: inherit;
+  }
 }
 
 a {
@@ -42,5 +46,12 @@ a {
   &:hover {
     color: $negative;
   }
+}
+.titleshadow  {
+  text-shadow: 
+      0 -1px 0 #fff, 
+      0 1px 0 #2e2e2e, 
+      0 2px 0 #2c2c2c, 
+      0 3px 0 #2a2a2a;
 }
 .holtwood { font-family: 'Holtwood One SC', serif; }

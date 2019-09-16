@@ -4,7 +4,20 @@ import React, { Component } from 'react'
 
 class Card extends Component {
   state = {
-    flip: false
+    flip: false,
+    card: {
+      name: 'Alonso Lamas',
+      position: 'Fullstack',
+      team: 'Software',
+      bio: 'Alonso \'Splinter\' Lamas is a frontend natural team lead with a high coding rate and a high level of production when pulling the keycap, Lamas has been compared to fellow Software Developer Linus Torvalds. Lamas was drafted by the Engineer team in 2005, and made his Industry debut in the 2011 season, sharing time between frontend and the backend. He became the Ateknea starting Frontend senior in 2017, before moving to team lead in 2018.',
+      stats: [
+        { year: '2015', team: 'Frontend', position: 'Coder', projects: 2, performance: 189, average: .291},
+        { year: '2016', team: 'Frontend', position: 'Coder', projects: 3, performance: 170, average: .391},
+        { year: '2017', team: 'Backend', position: 'Coder', projects: 2, performance: 199, average: .282},
+        { year: '2019', team: 'Fullstack', position: 'Coder', projects: 1, performance: 185, average: .295},
+        { year: '2018', team: 'Lead', position: 'Coder', projects: 2, performance: 192, average: .338}
+      ]
+    }
   }
 
   handleToogleFlip = e => {
@@ -13,14 +26,15 @@ class Card extends Component {
   }
 
   render () {
+    const { flip, card } = this.state
     return (
-      <div id='baseballCard' className='baseball-card' onClick={this.handleToogleFlip}>
-        <article id='flipper' className={this.state.flip ? 'flipped' : ''}>
+      <div className='baseball-card' onClick={this.handleToogleFlip}>
+        <article className={flip ? 'flipped' : ''}>
           <section className='front'>
-            <address className='player-name holtwood'>Alonso Lamas</address>
+            <address className='player-name holtwood'>{card.name}</address>
             <div className='player-photo' role='image' />
-            <p className='position holtwood'>Fullstack</p>
-            <p className='team holtwood'>Software</p>
+            <p className='position holtwood'>{card.position}</p>
+            <p className='team holtwood'>{card.team}</p>
             <img className='team-banner' id='teambanner' src='/static/teamBanner.svg' />
             <img className='position-banner' id='positionBanner' src='/static/positionBanner.svg' />
           </section>
@@ -29,32 +43,31 @@ class Card extends Component {
               <p className='card-number'>50
                 <img id='stitching' src='/static/stitching.svg' />
               </p>
-              <div className='flex-grid header-grid'>
-                <div className='flex-row'>
-                  <h2 className='flex-cell text-center width-12 header-player-name'>Alonso Lamas</h2>
+              <div className='row header-grid'>
+                <div className='col-xs-12'>
+                  <h2 className='box text-right header-player-name'>{card.name}</h2>
                 </div>
-                <div className='flex-row'>
-                  <span className='flex-cell width-04 header-player-position text-left'>
-                    Fullstack
-                  </span>
-                  <span className='flex-cell width-08 header-player-team text-right'>
-                    Software
-                  </span>
+                <div className='col-xs-12'>
+                  <p className='box text-right header-player-position'>
+                    {card.position}
+                  </p>
                 </div>
-                <div className='flex-row small-text'>
-                  <span className='flex-cell width-04'><strong>Code</strong>: <br />DRY</span>
-                  <span className='flex-cell width-04'><strong>Monitor</strong>: <br />Dual</span>
-                  <span className='flex-cell width-04'><strong>Keyboard</strong>: <br />Mechanical</span>
-                </div>
-                <div className='flex-row small-text'>
-                  <span className='flex-cell width-06'><strong>Born</strong>: <br />May 17, 1985</span>
-                  <span className='flex-cell width-06'><strong>Home</strong>: <br />Caracas, VE</span>
+                <div className='col-xs-12'>
+                  <div className='box'>
+                    <div className='row'>
+                      <span className='col-xs-4'><strong>Code</strong>: <br />DRY</span>
+                      <span className='col-xs-4'><strong>Monitor</strong>: <br />Dual</span>
+                      <span className='col-xs-4'><strong>Keyboard</strong>: <br />Mechanical</span>
+                    </div>
+                    <div className='row'>
+                      <span className='col-xs-6'><strong>Born</strong>: <br />May 17, 1985</span>
+                      <span className='col-xs-6'><strong>Home</strong>: <br />Caracas, VE</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </header>
-            <p className='bio'>
-              Alonso 'Splinter' Lamas is a frontend natural team lead with a high coding rate and a high level of production when pulling the keycap, Lamas has been compared to fellow Software Developer Linus Torvalds. Lamas was drafted by the Engineer team in 2005, and made his Industry debut in the 2011 season, sharing time between frontend and the backend. He became the Ateknea starting Frontend senior in 2017, before moving to team lead in 2018.
-            </p>
+            <p className='bio'>{card.bio}</p>
             <h3 className='table-title text-center'>Software League Records</h3>
             <table className='player-stats'>
               <thead>
@@ -62,63 +75,35 @@ class Card extends Component {
                   <th>Year</th>
                   <th>Team</th>
                   <th>Pos.</th>
-                  <th>G</th>
-                  <th>AB</th>
+                  <th>Pro.</th>
+                  <th>Perf.</th>
                   <th>AVG.</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
                   <th colSpan='3'>Maj. Tot. 5 Yrs</th>
-                  <th>644</th>
-                  <th>2606</th>
-                  <th>.303 </th>
+                  <th>10</th>
+                  <th>940</th>
+                  <th>.289</th>
                 </tr>
               </tfoot>
               <tbody>
-                <tr>
-                  <td>2015</td>
-                  <td>Frontend</td>
-                  <td>Coder</td>
-                  <td>52</td>
-                  <td>189</td>
-                  <td>.291</td>
-                </tr>
-                <tr>
-                  <td>2016</td>
-                  <td>Frontend</td>
-                  <td>Coder</td>
-                  <td>145</td>
-                  <td>597</td>
-                  <td>.291</td>
-                </tr>
-                <tr>
-                  <td>2017</td>
-                  <td>Backend</td>
-                  <td>Coder</td>
-                  <td>158</td>
-                  <td>672</td>
-                  <td>.318</td>
-                </tr>
-                <tr>
-                  <td>2018</td>
-                  <td>Fullstack</td>
-                  <td>Coder</td>
-                  <td>153</td>
-                  <td>628</td>
-                  <td>.264</td>
-                </tr>
-                <tr>
-                  <td>2019</td>
-                  <td>Lead</td>
-                  <td>Coder</td>
-                  <td>136</td>
-                  <td>520</td>
-                  <td>.346</td>
-                </tr>
+                {
+                  card.stats.map((stat, i) => 
+                    <tr key={i}>
+                      <td>{stat.year}</td>
+                      <td>{stat.team}</td>
+                      <td>{stat.position}</td>
+                      <td>{stat.projects}</td>
+                      <td>{stat.performance}</td>
+                      <td>{stat.average}</td>
+                    </tr>
+                  )
+                }
               </tbody>
             </table>
-            <p className='printed'>&copy; Alonso Lamas</p>
+            <p className='printed'>&copy; {card.name}</p>
           </section>
         </article>
       </div>
