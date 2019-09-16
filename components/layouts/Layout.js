@@ -1,18 +1,12 @@
 import React from 'react'
 import Head from 'next/head'
 // API
-import fetch from 'isomorphic-unfetch'
-// Google analytics
-import { initGA, logPageView } from '../../utils/analytics'
+import { getData } from '../../utils/api'
 // Components
-import Header from '../commons/header'
-import Footer from '../commons/footer'
-import Loader from '../decorations/loader'
+import Header from '../commons/Header'
+import Footer from '../commons/Footer'
+import Loader from '../decorations/Loader'
 
-import {
-  API_ROOT_URL,
-  PROFILE_ID
-} from '../../constants'
 import '../../stylesheets/main.scss'
 
 class Layout extends React.Component {
@@ -22,16 +16,7 @@ class Layout extends React.Component {
   }
 
   async componentDidMount () {
-    // analytics
-    if (!window.GA_INITIALIZED) {
-      initGA()
-      window.GA_INITIALIZED = true
-    }
-    logPageView()
-
-    // fake API call
-    const resProfile = await fetch(`${API_ROOT_URL}profiles?id=${PROFILE_ID}`)
-    const profile = await resProfile.json()
+    const profile = await getData('profile')
     await this.setState({ profile: profile[0], loader: false })
   }
 

@@ -1,15 +1,14 @@
 .footer-stripe-box{
   width: 30em;
-  height: 90px;
   position: absolute;
   z-index: -1;
-  bottom: 0;
+  top: 0;
   left: 50%;
   margin-left: -15em;
 }
 
 .footer-stripe {
-  height: 15px;
+  height: 1em;
   margin: 0 auto;
 }
 
@@ -42,7 +41,7 @@
   background-color: $line6;
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 40.625em) {
   footer{
     width: 100%;
     position: absolute!important;

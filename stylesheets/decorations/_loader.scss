@@ -1,65 +1,64 @@
-//Condensed code and made it look like how I wanted it to look
-$size:50px;
-$time:2s;
+$size: 3.125em;
+$time: 2s;
 
 .loader {
   position: fixed;
   position: absolute;
   top:50%;
   left:50%;
-  transform:translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
   animation: spin $time*4 infinite linear 0s;
   .d1,.d2,.d3,.d4,.d5 {
     position: absolute;
-    width:10px;
-    height:10px;
+    width:0.625em;
+    height:0.625em;
     border: $size solid transparent;
     border-radius:50%;
     opacity:0.8;
   }
-  .d1 {
-    animation: rotate $time infinite ease 0s;
-  }
-  .d2 {
-    animation: rotate $time infinite ease $time/-5;
-  }
-  .d3 {
-    animation: rotate $time infinite ease $time/-2.5;
-  }
-  .d4 {
-    animation: rotate $time infinite ease $time/-1.25;
-  }
-  .d5 {
-    animation: rotate $time infinite ease $time/-0.625;
-  }
+  .d1 { animation: rotate $time infinite ease 0s; }
+  .d2 { animation: rotate $time infinite ease $time/-5; }
+  .d3 { animation: rotate $time infinite ease $time/-2.5; }
+  .d4 { animation: rotate $time infinite ease $time/-1.25; }
+  .d5 { animation: rotate $time infinite ease $time/-0.625; }
 }
+
 @keyframes rotate {
   0% {
     border-top: $size solid $line1;
     border-left: $size solid transparent;
     border-bottom: $size solid $line4;
     border-right: $size solid transparent;
-    transform:translate(-50%,-50%) rotate(0deg);
-    width:2px; height:2px;
+    -webkit-transform: translate(-50%,-50%) rotate(0deg);
+    transform: translate(-50%,-50%) rotate(0deg);
+    width:0.125em; 
+    height:0.125em;
   }
   50% {
-    width:$size*2; height:$size*2;
+    width: $size*2; 
+    height: $size*2;
   }
   100% {
     border-top: $size solid transparent;
     border-left: $size solid $line1;
     border-bottom: $size solid transparent;
     border-right: $size solid $line4;
-    transform:translate(-50%,-50%) rotate(90deg);
-    width:2px; height:2px;
+    -webkit-transform: translate(-50%,-50%) rotate(90deg);
+    transform: translate(-50%,-50%) rotate(90deg);
+    width: 0.125em; 
+    height: 0.125em;
   }
 }
+
 @keyframes spin { 
-  0% {
-    transform:translate(-50%,-50%) rotate(0deg);
+  0% { 
+    -webkit-transform: translate(-50%,-50%) rotate(0deg);
+    transform: translate(-50%,-50%) rotate(0deg); 
   }
-  100% {
-    transform:translate(-50%,-50%) rotate(360deg);
+  100% { 
+    -webkit-transform: translate(-50%,-50%) rotate(360deg);
+    transform: translate(-50%,-50%) rotate(360deg); 
   }
 }
 

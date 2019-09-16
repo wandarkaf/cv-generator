@@ -1,14 +1,14 @@
 import React from 'react'
 // Translations
-import { Trans } from '@lingui/macro'
-import withLang from '../components/languages/withLang'
+import withLang from '../components/languages/WithLang'
 // components
-import Layout from '../components/layouts/layout'
+import Layout from '../components/layouts/Layout'
+import Card from '../components/commons/Card'
 
 const About = () => {
   return (
     <Layout>
-      <p><Trans id='about' /></p>
+      <Card />
     </Layout>
   )
 }

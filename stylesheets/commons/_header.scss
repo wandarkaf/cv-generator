@@ -1,0 +1,42 @@
+nav {
+  padding: 1em 0;
+  a { margin-right: 1em; }
+  a, span {
+    &:hover{
+      cursor: pointer;
+    }
+    &.active{
+      color: $hover;
+    }
+    &.inactive{
+      color: $base;
+    }
+  }
+  .language {
+    text-align: right;
+    position: relative;
+    ul{
+      position: absolute;
+      z-index: 999;
+      top: 1.8em;
+      right: -0.8em;
+      background-color: white;
+      padding: 0.5em 0.8em;
+      border-bottom: 1px solid $base;
+      border-radius: 5px;
+      font-size: 0.8em;
+      li{
+        &:hover {
+          color: $hover;
+          cursor: pointer;
+        }
+        &.active{
+          color: $hover;
+        }
+        &.inactive{
+          color: $base;
+        }
+      }
+    }
+  }
+}

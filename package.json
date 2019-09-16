@@ -1,6 +1,8 @@
 {
   "name": "alonso",
-  "version": "1.0.4",
+  "version": "1.1.4",
+  "author": "Alonso Lamas",
+  "license": "ISC",
   "private": true,
   "scripts": {
     "dev": "next",
@@ -10,8 +12,9 @@
     "extract": "lingui extract",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test": "standard",
-    "test:fix": "standard --fix"
+    "test": "standard && jest",
+    "code:check": "standard",
+    "code:fix": "standard --fix"
   },
   "dependencies": {
     "@lingui/react": "latest",
@@ -28,7 +31,6 @@
     "react-markdown": "^4.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.5",
     "@lingui/cli": "^2.8.3",
     "@lingui/loader": "latest",
     "@lingui/macro": "^2.8.3",
@@ -36,11 +38,14 @@
     "@storybook/addon-links": "^5.1.10",
     "@storybook/addons": "^5.1.10",
     "@storybook/react": "^5.1.10",
+    "@testing-library/jest-dom": "^4.1.0",
+    "@testing-library/react": "^9.1.4",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
     "babel-plugin-macros": "^2.4.0",
-    "standard": "*"
+    "jest": "^24.9.0",
+    "standard": "^14.1.0"
   },
   "lingui": {
     "sourceLocale": "en",
@@ -52,7 +57,7 @@
     "format": "po"
   },
   "standard": {
-    "parser": "babel-eslint"
-  },
-  "license": "ISC"
+    "parser": "babel-eslint",
+    "env": ["jest"]
+  }
 }

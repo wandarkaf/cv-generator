@@ -1,4 +1,4 @@
-const FooterStrips = ({ show }) => (
+const FooterStrips = () => (
   <div className='footer-stripe-box'>
     <div className='footer-stripe footer-stripe-1' />
     <div className='footer-stripe footer-stripe-2' />
