@@ -11,11 +11,11 @@ class Card extends Component {
       team: 'Software',
       bio: 'Alonso \'Splinter\' Lamas is a frontend natural team lead with a high coding rate and a high level of production when pulling the keycap, Lamas has been compared to fellow Software Developer Linus Torvalds. Lamas was drafted by the Engineer team in 2005, and made his Industry debut in the 2011 season, sharing time between frontend and the backend. He became the Ateknea starting Frontend senior in 2017, before moving to team lead in 2018.',
       stats: [
-        { year: '2015', team: 'Frontend', position: 'Coder', projects: 2, performance: 189, average: .291},
-        { year: '2016', team: 'Frontend', position: 'Coder', projects: 3, performance: 170, average: .391},
-        { year: '2017', team: 'Backend', position: 'Coder', projects: 2, performance: 199, average: .282},
-        { year: '2019', team: 'Fullstack', position: 'Coder', projects: 1, performance: 185, average: .295},
-        { year: '2018', team: 'Lead', position: 'Coder', projects: 2, performance: 192, average: .338}
+        { year: '2015', team: 'Frontend', position: 'Coder', projects: 2, performance: 189, average: 0.291 },
+        { year: '2016', team: 'Frontend', position: 'Coder', projects: 3, performance: 170, average: 0.391 },
+        { year: '2017', team: 'Backend', position: 'Coder', projects: 2, performance: 199, average: 0.282 },
+        { year: '2019', team: 'Fullstack', position: 'Coder', projects: 1, performance: 185, average: 0.295 },
+        { year: '2018', team: 'Lead', position: 'Coder', projects: 2, performance: 192, average: 0.338 }
       ]
     }
   }
@@ -90,7 +90,7 @@ class Card extends Component {
               </tfoot>
               <tbody>
                 {
-                  card.stats.map((stat, i) => 
+                  card.stats.map((stat, i) =>
                     <tr key={i}>
                       <td>{stat.year}</td>
                       <td>{stat.team}</td>
