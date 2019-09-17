@@ -6,6 +6,8 @@ import { getData } from '../../utils/api'
 import Header from '../commons/Header'
 import Footer from '../commons/Footer'
 import Loader from '../decorations/Loader'
+// Google analytics
+import { initGA, logPageView } from '../../utils/analytics'
 
 import '../../stylesheets/main.scss'
 
@@ -16,6 +18,13 @@ class Layout extends React.Component {
   }
 
   async componentDidMount () {
+    // analytics
+    if (!window.GA_INITIALIZED) {
+      initGA()
+      window.GA_INITIALIZED = true
+    }
+    logPageView()
+
     const profile = await getData('profile')
     await this.setState({ profile: profile[0], loader: false })
   }
