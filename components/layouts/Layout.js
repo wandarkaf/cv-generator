@@ -24,7 +24,7 @@ class Layout extends React.Component {
       window.GA_INITIALIZED = true
     }
     logPageView()
-  
+
     const profile = await getData('profile')
     await this.setState({ profile: profile[0], loader: false })
   }

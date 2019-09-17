@@ -11,11 +11,11 @@ class LangSwitcher extends React.Component {
     open: false
   }
 
-  componentDidMount() {
+  componentDidMount () {
     document.addEventListener('mousedown', this.handleLanguageClick)
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     document.removeEventListener('mousedown', this.handleLanguageClick)
   }
 
@@ -35,7 +35,7 @@ class LangSwitcher extends React.Component {
     }
     this.setState({ open: false })
   }
-    
+
   handleActiveLangClass = (curr, lang) =>
     curr === lang ? 'active' : 'inactive'
 
@@ -49,13 +49,14 @@ class LangSwitcher extends React.Component {
       <I18n>
         {({ i18n }) => (
           <div className='language' ref={area => this.area = area}>
-            <span 
-              className={`btn ${this.state.open ? 'active': 'inactive'}`}
+            <span
+              className={`btn ${this.state.open ? 'active' : 'inactive'}`}
             >
               <FiGlobe />
             </span>
-            {this.state.open
-              ? <ul>
+            {
+              this.state.open
+                ? <ul>
                   {languages.map((language, i) =>
                     <li
                       key={i}
@@ -65,8 +66,8 @@ class LangSwitcher extends React.Component {
                       <Trans id={language.translation} />
                     </li>
                   )}
-                </ul>
-              : null
+                  </ul>
+                : null
             }
           </div>
         )}
